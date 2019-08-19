@@ -1,0 +1,89 @@
+body {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.site-wrapper {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-flex {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.main-cover {
+    z-index: 1;
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.main-bg {
+    z-index: 0;
+    width: 100vw;
+    background-image: url("../img/bg_1.jpg");
+    background-size: cover;
+}
+
+.filter-blur {
+    filter: url(#mt-blur);
+}
+
+.parallaxed {
+    mix-blend-mode: luminosity;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.parallaxed.quarter {
+    height: 75vh;
+    width: 75vw;
+}
+
+.pos-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pos-fixed.quarter-center {
+    top: 12.5vh;
+    left: 12.5vw;
+}
+
+.blend {
+    mix-blend-mode: difference;
+    color: #ccc;
+}
+
+.hero-title {
+    font-family: 'Space Mono', 'Courier New', 'Courier', monospace;
+    color: #86ff2d;
+}
+
+.hero-title > h1 {
+    font-size: 4vw;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 19vw;
+}
+
+.portfolio-button {
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    border: 6px solid #fff;
+    padding: 1vh;
+    width: 8.5vw;
+}
+
+.portfolio-button:hover {
+    color: inherit;
+}
