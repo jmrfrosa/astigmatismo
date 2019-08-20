@@ -1,4 +1,16 @@
-let fxStrength = 10;
+let fxStrength = 4;
+let parallaxNum = 4;
+
+let parallaxTarget = document.getElementById("parallax-target");
+
+for(let i=0; i<parallaxNum; i++) {
+    let newParallax = parallaxTarget.cloneNode(true);
+    newParallax.removeAttribute("id");
+    newParallax.setAttribute("class", newParallax.classList + " pos-abs");
+    newParallax.style.top    = 0;
+    newParallax.style.left   = "8px";
+    parallaxTarget.append(newParallax);
+}
 
 let windowCenter = {
     x: document.documentElement.clientWidth * 0.5,
@@ -8,7 +20,8 @@ let windowCenter = {
 let maxMag = Math.sqrt(Math.pow(windowCenter.x, 2) + Math.pow(windowCenter.y, 2));
 
 function setMotionBlur(xBlur, yBlur) {
-    document.querySelector('#mt-blur').firstElementChild.setAttribute("stdDeviation", xBlur + "," + yBlur)
+    document.querySelector('#mt-blur')
+    .firstElementChild.setAttribute("stdDeviation", xBlur + "," + yBlur)
 }
 
 document.onmousemove = handleMovement;
@@ -42,9 +55,12 @@ function handleMovement(event) {
 
 function handleAnimation(mouseVector) {
 
-    let nElements = document.getElementsByClassName("parallaxed").length
-    for(i = 1; i <= nElements; i++ ) {
-        animateParallax(mouseVector, i);
+    let elements = document.getElementsByClassName("parallaxed");
+
+    let i = 0;
+    for(element of elements) {
+        animateParallax(mouseVector, element, i);
+        i++;
     }
 
     anime({
@@ -63,21 +79,17 @@ function handleAnimation(mouseVector) {
 
 }
 
-function animateParallax(mouseVector, n) {
-    
+function animateParallax(mouseVector, e, iteratorPos) {
+
     anime({
-        targets: '#parallax' + n,
+        targets: e,
         translateX: {
-            value: n * mouseVector.x * fxStrength,
+            value: iteratorPos * mouseVector.x * fxStrength,
             duration: 500
         },
         translateY: {
-            value: n * mouseVector.y * fxStrength,
+            value: iteratorPos * mouseVector.y * fxStrength,
             duration: 500
-        },
-        opacity: {
-            value: 1 / n,
-            duration: 200
         }
     });
 
