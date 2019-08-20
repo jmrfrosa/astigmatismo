@@ -25,23 +25,33 @@ body {
 .main-bg {
     z-index: 0;
     width: 100vw;
-    background-image: url("../img/bg_1.jpg");
+    background-image: url("../img/bg_3.jpg");
     background-size: cover;
 }
+
+/* .main-bg {
+    z-index: 0;
+    width: 100vw;
+    background-color: black;
+} */
 
 .filter-blur {
     filter: url(#mt-blur);
 }
 
 .parallaxed {
-    mix-blend-mode: luminosity;
+    /* mix-blend-mode: luminosity; */
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .parallaxed.quarter {
     height: 75vh;
     width: 75vw;
+}
+
+#parallax-target {
+    opacity: 0.9;
 }
 
 .pos-fixed {
@@ -55,14 +65,19 @@ body {
     left: 12.5vw;
 }
 
+.pos-abs {
+    position: absolute;
+}
+
 .blend {
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     color: #ccc;
 }
 
 .hero-title {
     font-family: 'Space Mono', 'Courier New', 'Courier', monospace;
-    color: #86ff2d;
+    /* color: #86ff2d; */
+    color: #fff;
 }
 
 .hero-title > h1 {
